@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Projeto.ReferenciaDireta.Web.Models.Produto>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<br />
+<div class="jumbotron">
+    <h2 class="text-center">Bem-Vindo @ViewBag.NomeUsuario</h2>
+</div>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-12 col-md-4">
+            <div class="col-md-12 img-thumbnail" style="display: block; margin: 10px auto;">
+                <div id="info" style="min-height: 50px; background-color: #FAFAFA; border-radius: 2px;">
+                    <p class="text-info text-center">
+                        <strong> @Html.DisplayFor(modelItem => item.Nome) </strong>
+                        <strong class="text-danger">- @Html.DisplayFor(modelItem => item.Preco)</strong>
+                    </p>
+                </div>
+
+                <div id="imagem" style="min-height: 328px;">
+                    <img class="img-responsive" style="margin: 0 auto;" src="/@item.Imagem" />
+                </div>
+                <a href="@Url.Action("Detalhes", "Produto", new { id = item.ProdutoId })" class="btn btn-success btn-block">
+                    <span class="glyphicon glyphicon-search"></span> Ver detalhes
+                </a>
+            </div>
+        </div>
+    }
+   
+</div>
