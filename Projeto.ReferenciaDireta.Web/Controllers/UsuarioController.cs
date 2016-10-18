@@ -9,6 +9,7 @@ namespace Projeto.ReferenciaDireta.Controllers
     public class UsuarioController : Controller
     {
         // GET: Usuario/Logar
+        [HttpGet]
         public ActionResult Logar()
         {
             return View();
